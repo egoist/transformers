@@ -20,7 +20,7 @@ function expectCode (req, res, next) {
 export default function server (root) {
 
   if (process.env.NODE_ENV === 'development') {
-    const config = require(root + '/webpack.config.js')
+    const config = require(root + '/webpack.config.dev.js')
     const compiler = require('webpack')(config)
     app.use(require('webpack-dev-middleware')(compiler, {
       publicPath: config.output.publicPath,
