@@ -1,0 +1,49 @@
+{
+  "name": "node-transformers",
+  "version": "0.0.0",
+  "description": "As its name suggests.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:server": "NODE_ENV=development nodemon index.js --watch src",
+    "build:server": "NODE_ENV=production rollup -c"
+  },
+  "bin": {
+    "transformers": "cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egoist/transformers.git"
+  },
+  "keywords": [
+    "next"
+  ],
+  "files": [
+    "cli.js",
+    "index.js",
+    "server.js"
+  ],
+  "author": "EGOIST <0x142857@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/egoist/transformers/issues"
+  },
+  "homepage": "https://github.com/egoist/transformers#readme",
+  "devDependencies": {
+    "babel-register": "^6.3.13",
+    "nodemon": "^1.8.1",
+    "rollup": "^0.22.0",
+    "rollup-plugin-babel": "^2.2.0"
+  },
+  "dependencies": {
+    "babel-core": "^6.3.26",
+    "babel-plugin-transform-runtime": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-es2015-rollup": "^1.0.0",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-runtime": "^5.8.34",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3"
+  }
+}
