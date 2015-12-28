@@ -24,7 +24,17 @@ POST `/api/babel`
 
 |Name|Type|Description|
 |---|---|---|
-|code|String|The content to be transformed to ES5. **Support** ES6, JSX and stage-0 features|
+|code|String|The content to be transformed to ES5. ES6 by default|
+|react|Boolean|**false**. Enable this to allow transforming JSX code|
+|experimental|Boolean|**false**. Enable this to allow stage-0 features|
+
+**Response**
+
+```json
+{
+  "code": "\"use strict\";\n\nvar a = React.createElement(\"div\", null);"
+}
+```
 
 ## Development
 

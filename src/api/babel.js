@@ -8,10 +8,18 @@ export default function (req, res) {
 			message: 'Expected <code> field but not found'
 		})
 	}
-	const result = babel.transform(code, {
-		presets: ['es2015', 'stage-0', 'react'],
-		plugins: ['transform-runtime']
-	})
+  const babelOpts = {
+    presets: ['es2015'],
+    plugins: []
+  }
+  if (req.body.experimental) {
+    babelOpts.presets.push('stage-0')
+    babelOpts.plugins.push('transform-runtime')
+  }
+  if (req.body.react) {
+    babelOpts.presets.push('react')
+  }
+	const result = babel.transform(code, babelOpts)
 	res.json({
 		code: result.code
 	})
