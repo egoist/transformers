@@ -54,6 +54,23 @@ POST `/api/postcss`
 }
 ```
 
+### Jade
+
+POST `/api/jade`
+
+**Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|code|String|The content to be transformed to valid HTML. Support `Jade` syntax|
+
+**Response**
+
+```json
+{
+  "code": "<body>hi</body>"
+}
+
 ## Development
 
 |Command|Description|

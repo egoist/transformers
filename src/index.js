@@ -3,6 +3,7 @@ const app = express()
 import bodyParser from 'body-parser'
 import babel from './api/babel'
 import postcss from './api/postcss'
+import jade from './api/jade'
 
 function expectCode (req, res, next) {
   const code = req.body.code
@@ -24,7 +25,8 @@ export default function server () {
 	}))
 
 	app.post('/api/babel', expectCode, babel)
-  app.post('/api/postcss', expectCode,postcss)
+  app.post('/api/postcss', expectCode, postcss)
+  app.post('/api/jade', expectCode, jade)
 
 	const port = app.get('port') || 3003
 	app.listen(port, () => {
