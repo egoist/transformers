@@ -36,6 +36,8 @@ POST `/api/babel`
 }
 ```
 
+---
+
 ### PostCSS
 
 POST `/api/postcss`
@@ -54,6 +56,8 @@ POST `/api/postcss`
 }
 ```
 
+---
+
 ### Jade
 
 POST `/api/jade`
@@ -70,6 +74,7 @@ POST `/api/jade`
 {
   "code": "<body>hi</body>"
 }
+```
 
 ## Development
 
