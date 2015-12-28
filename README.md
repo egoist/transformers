@@ -36,6 +36,24 @@ POST `/api/babel`
 }
 ```
 
+### PostCSS
+
+POST `/api/postcss`
+
+**Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|code|String|The content to be transformed to valid CSS. Support `PreCSS` by using PostCSS|
+
+**Response**
+
+```json
+{
+  "code": "body h1{\n    font-size:15px;\n}"
+}
+```
+
 ## Development
 
 |Command|Description|
