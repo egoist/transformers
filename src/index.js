@@ -17,13 +17,33 @@ function expectCode (req, res, next) {
   }
 }
 
-export default function server () {
+export default function server (root) {
 
+  if (process.env.NODE_ENV === 'development') {
+    const config = require(root + '/webpack.config.js')
+    const compiler = require('webpack')(config)
+    app.use(require('webpack-dev-middleware')(compiler, {
+      publicPath: config.output.publicPath,
+      stats: {
+        colors: true
+      }
+    }))
+    app.use(require('webpack-hot-middleware')(compiler))
+  }
+
+  app.set('view engine', 'jade')
+  app.set('views', root + '/templates')
+  app.use('/static', express.static('build'))
 	app.use(bodyParser.json())
 	app.use(bodyParser.urlencoded({
 	  extended: true
 	}))
 
+  app.get('/', (req, res) => {
+    res.render('index', {
+      assets: require(root + '/webpack-assets')
+    })
+  })
 	app.post('/api/babel', expectCode, babel)
   app.post('/api/postcss', expectCode, postcss)
   app.post('/api/jade', expectCode, jade)
