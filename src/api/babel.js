@@ -19,8 +19,15 @@ export default function (req, res) {
   if (req.body.react) {
     babelOpts.presets.push('react')
   }
-	const result = babel.transform(code, babelOpts)
-	res.json({
-		code: result.code
-	})
+	try {
+    const result = babel.transform(code, babelOpts)
+    res.json({
+      code: result.code
+    })
+  } catch(err) {
+    res.json({
+      error: true,
+      message: err.stack
+    })
+  }
 }
