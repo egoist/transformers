@@ -76,6 +76,26 @@ POST `/api/jade`
 }
 ```
 
+---
+
+### Curly CSS
+
+POST `/api/curlycss`
+
+**Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|code|String|White-space formated CSS, like `Stylus` syntax|
+
+**Response**
+
+```json
+{
+  "code": "body {color: #333;}"
+}
+```
+
 ## Development
 
 |Command|Description|
