@@ -6,6 +6,7 @@ export default {
 	plugins: [
 		babel({
 			exclude: 'node_modules/**',
+			runtimeHelpers: true,
 			presets: ['es2015-rollup', 'stage-0'],
 			plugins: ['transform-runtime']
 		})
